@@ -3,8 +3,6 @@
 BREW_PACKAGES=(bash-completion coreutils findutils vim git git-extras curl wget watch node go python ssh-copy-id "homebrew/dupes/grep")
 
 DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-echo $DOTFILES_ROOT
-echo `pwd`
 PLATFORM=$(uname)
 
 # Global state variables
@@ -129,7 +127,6 @@ link_file () {
 
     if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]; then
       local currentSrc="$(readlink $dst)"
-      echo "SRC $src CURRENTSRC $currentSrc DST $dst"
 
       if [ "$currentSrc" == "$src" ]; then
         skip=true;
