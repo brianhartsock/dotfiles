@@ -206,6 +206,10 @@ then
   homebrew
 fi
 
+# Update any sub-modules (done after homebrew so we know e have git)
+git submodule init > /dev/null
+git submodule update > /dev/null
+
 info 'installing dotfiles'
 
 # Link all normal files
