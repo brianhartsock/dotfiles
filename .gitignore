@@ -7,3 +7,7 @@ vim/.netrwhist
 # Ignore everything but NeoBundle. NeoBundle will install other plugins.
 vim/bundle/*
 !vim/bundle/neobundle.vim
+
+# Ignore run.sh. This file is useful to call bootstrap.sh with template
+# variables already filled out.
+run.sh

@@ -42,6 +42,10 @@ LICENSE
 ## extra
 The extra file is a special file that will not be committed to git, but will by symlinked. It is bash file meant for bash environment variables. It is much like a template file, but a bit easier to use.
 
+## run.sh
+
+`run.sh` is exclued and ignored for git. It is useful to call bootstrap.sh with your template variables already defined.
+
 # Bugs
 If you use this and find issues, just submit and issue or create a PR. I created this mainly for myself and am sure there are tons of scenarios that haven't been accounted for in the code.
 
