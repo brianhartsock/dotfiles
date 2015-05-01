@@ -25,10 +25,6 @@ shopt -s checkwinsize
 # Default GREP options
 GREP_OPTIONS='--color=auto'
 
-# Setup RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-export rvmsudo_secure_path=0
-
 # Set colors as environments variables
 COLOR_WHITE='\[\033[1;37m\]'
 COLOR_LIGHTGRAY='\[033[0;37m\]'
@@ -86,3 +82,9 @@ fi
 
 # Docker info
 export DOCKER_HOST=tcp://127.0.0.1:2375
+
+# Setup RVM last. RVM complains if it isn't first place in the path.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export rvmsudo_secure_path=0
+
+
