@@ -1,0 +1,34 @@
+[core]
+  editor = /usr/bin/vim
+  excludesfile = ~/.gitignore
+[user]
+  name = ${GIT_NAME}
+  email = ${GIT_EMAIL}
+[color]
+  ui = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[core]
+  whitespace = trailing-space,space-before-tab
+[github]
+  user = ${GITHUB_USERNAME}
+  token = ${GITHUB_TOKEN}
+[gist]
+  private = yes
+[push]
+  default = simple

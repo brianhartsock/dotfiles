@@ -1,0 +1,9 @@
+extra
+vim/.netrwhist
+
+# We use hidden tmp files to replace template files with actual values
+*.tmp
+
+# Ignore everything but NeoBundle. NeoBundle will install other plugins.
+vim/bundle/*
+!vim/bundle/neobundle.vim

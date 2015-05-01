@@ -1,0 +1,8 @@
+.git
+.gitignore
+.exclusions
+bootstrap.sh
+README.md
+LICENSE
+*.swp
+scripts

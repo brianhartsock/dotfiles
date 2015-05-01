@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+
+# Set my default editor
+EDITOR=$(which vim)
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# command line colors
+# TODO does this work on linux?
+export CLICOLOR=1
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# Default GREP options
+GREP_OPTIONS='--color=auto'
+
+# Setup RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export rvmsudo_secure_path=0
+
+# Set colors as environments variables
+COLOR_WHITE='\[\033[1;37m\]'
+COLOR_LIGHTGRAY='\[033[0;37m\]'
+COLOR_GRAY='\[\033[1;30m\]'
+COLOR_BLACK='\[\033[0;30m\]'
+COLOR_RED='\[\033[0;31m\]'
+COLOR_LIGHTRED='\[\033[1;31m\]'
+COLOR_GREEN='\[\033[0;32m\]'
+COLOR_LIGHTGREEN='\[\033[1;32m\]'
+COLOR_BROWN='\[\033[0;33m\]'
+COLOR_YELLOW='\[\033[1;33m\]'
+COLOR_BLUE='\[\033[0;34m\]'
+COLOR_LIGHTBLUE='\[\033[1;34m\]'
+COLOR_PURPLE='\[\033[0;35m\]'
+COLOR_PINK='\[\033[1;35m\]'
+COLOR_CYAN='\[\033[0;36m\]'
+COLOR_LIGHTCYAN='\[\033[1;36m\]'
+COLOR_DEFAULT='\[\033[0m\]'
+
+BLINK_ON="\[\e[5m\]"
+BLINK_OFF="\[\e[m\]"
+
+# Path
+append_path () {
+  PATH=$PATH:$1
+}
+
+prepend_path () {
+  PATH=$1:$PATH
+}
+
+prepend_man_path () {
+  MANPATH=$1:$MANPATH
+}
+
+prepend_path "$(brew --prefix coreutils)/libexec/gnubin"
+prepend_man_path "$(brew --prefix coreutils)/libexec/gnuman"
+
+# Configure PS1
+# This sets up PS1 to be colorized and include git status information
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+  # We have color support; assume it's compliant with Ecma-48
+  # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+  # a case would tend to support setf rather than setaf.)
+  export color_prompt=yes
+else
+  export color_prompt=
+fi
+
+if [ "$color_prompt" = yes ]; then
+  PS1="$COLOR_GREEN\u@\h$COLOR_DEFAULT:$COLOR_BLUE\w$COLOR_RED \$(__git_ps1 ' (%s)')$COLOR_DEFAULT$ "
+else
+  PS1="\u@\h:\w \$(__git_ps1 ' (%s)')$ "
+fi
+
+# Docker info
+export DOCKER_HOST=tcp://127.0.0.1:2375
