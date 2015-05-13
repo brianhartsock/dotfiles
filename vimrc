@@ -34,6 +34,7 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'vim-scripts/scons.vim'
 NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'chase/vim-ansible-yaml'
 
 " Required:
 call neobundle#end()
