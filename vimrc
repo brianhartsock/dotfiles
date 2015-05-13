@@ -33,6 +33,7 @@ NeoBundle 'andreimaxim/vim-io'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'vim-scripts/scons.vim'
+NeoBundle 'digitaltoad/vim-jade'
 
 " Required:
 call neobundle#end()
