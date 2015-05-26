@@ -35,6 +35,7 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'vim-scripts/scons.vim'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'chase/vim-ansible-yaml'
+NeoBundle 'editorconfig/editorconfig-vim'
 
 " Required:
 call neobundle#end()
