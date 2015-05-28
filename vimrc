@@ -36,6 +36,8 @@ NeoBundle 'vim-scripts/scons.vim'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'plasticboy/vim-markdown'
 
 " Required:
 call neobundle#end()
