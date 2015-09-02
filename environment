@@ -82,9 +82,3 @@ fi
 
 # Docker info
 export DOCKER_HOST=tcp://127.0.0.1:2375
-
-# Setup RVM last. RVM complains if it isn't first place in the path.
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-export rvmsudo_secure_path=0
-
-
