@@ -81,7 +81,7 @@ template_files () {
 # 2. Run bootstrap.sh with a variable defined in the bash environment
 #    i.e. GIT_NAME="Brian Hartsock" ./bootstrap.sh
 template_variables () {
-  echo `find . -name *.template -exec grep -oE '\\$\\{([^}]+)\\}' \{\} \; | sed 's/\${\(.*\)}/\1/'`
+  echo $(find . -name *.template -exec grep -oE '\$\{([^}]+)\}' {} \; | sed 's/\${\(.*\)}/\1/')
 }
 
 # link_template_files
@@ -109,7 +109,7 @@ link_template_files () {
       user "$variable_name:"
       read -e variable_value
     fi
-    sed -i '' "s/\\\${$variable_name}/$variable_value/" .*.tmp
+    sed -i "s/\\\${$variable_name}/$variable_value/" .*.tmp
   done
 
   # Link template files to users home directory
