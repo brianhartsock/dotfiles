@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
 
 BREW_PACKAGES=(bash-completion coreutils findutils vim git git-extras curl wget watch node go python ssh-copy-id "homebrew/dupes/grep")
+APT_PACKAGES=(realpath git vim)
 
 DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 PLATFORM=$(uname)
 
 # Global state variables
 overwrite_all=false backup_all=false skip_all=false
+
+ubuntu () {
+  sudo apt-get install -y $APT_PACKAGES
+}
 
 homebrew () {
   # Update homebrew
@@ -200,10 +205,14 @@ files_to_link () {
   echo "${files[@]}"
 }
 
-info 'installing homebrew'
 if [ $PLATFORM == 'Darwin' ]
 then
+  info 'installing homebrew'
   homebrew
+elif [ $PLATFORM == 'Linux' ]
+then
+  info 'installing ubuntu packages'
+  ubuntu
 fi
 
 # Update any sub-modules (done after homebrew so we know e have git)

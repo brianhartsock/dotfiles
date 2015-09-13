@@ -60,8 +60,12 @@ prepend_man_path () {
   MANPATH=$1:$MANPATH
 }
 
-prepend_path "$(brew --prefix coreutils)/libexec/gnubin"
-prepend_man_path "$(brew --prefix coreutils)/libexec/gnuman"
+PLATFORM=$(uname)
+
+if [ $PLATFORM == 'Darwin' ]; then
+  prepend_path "$(brew --prefix coreutils)/libexec/gnubin"
+  prepend_man_path "$(brew --prefix coreutils)/libexec/gnuman"
+fi
 
 # Configure PS1
 # This sets up PS1 to be colorized and include git status information
