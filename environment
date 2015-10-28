@@ -79,6 +79,3 @@ if [ "$color_prompt" = yes ]; then
 else
   PS1="\u@\h:\w \$(__git_ps1 ' (%s)')$ "
 fi
-
-# Docker info
-export DOCKER_HOST=tcp://127.0.0.1:2375
