@@ -38,6 +38,8 @@ NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'vim-perl/vim-perl'
+NeoBundle 'scrooloose/syntastic'
 
 " Required:
 call neobundle#end()
@@ -148,3 +150,16 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme jellybeans
 set background=dark
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Syntastic Syntax Highlighting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
