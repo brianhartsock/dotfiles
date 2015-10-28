@@ -46,3 +46,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # NVM Setup
 export NVM_DIR="/Users/brianhartsock/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# AWS Autocomplete
+complete -C aws_completer aws
