@@ -41,8 +41,21 @@ if [ $PLATFORM == 'Darwin' ]; then
   fi
 fi
 
+# NVM Setup
+export NVM_DIR="/Users/brianhartsock/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# AWS Autocomplete
+complete -C aws_completer aws
+
+# Perl Brew
+if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
+  source ~/perl5/perlbrew/etc/bashrc
+fi
+
 # RVM Setup
 # RVM checks these lines in .bashrc so it must be in this file.
+# RVM likes to be first...
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 

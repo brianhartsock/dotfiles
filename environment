@@ -84,5 +84,10 @@ else
   PS1="\u@\h:\w \$(__git_ps1 ' (%s)')$ "
 fi
 
-# Docker info
-export DOCKER_HOST=tcp://127.0.0.1:2375
+# Android Paths
+if [[ -d $HOME/Library/Android/sdk/tools ]]; then
+  append_path "$HOME/Library/Android/sdk/tools"
+fi
+if [[ -d "$HOME/Library/Android/sdk/platform-tools" ]]; then
+  append_path "$HOME/Library/Android/sdk/platform-tools"
+fi
