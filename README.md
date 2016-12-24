@@ -1,40 +1,51 @@
 This is my take on dotfiles and how to manage them. Very simple.
 
 # Getting Started
-Running the `bootstrap.sh` will install a bunch of homebrew libraries and symlink files to the users home directory.
 
+Installing the dotfiles can be done in many different ways but the easiest is to use ansible and [ansible-role-dotfiles](https://github.com/geerlingguy/ansible-role-dotfiles).
+
+Install ansible `brew install ansible`.
+
+Create a `requirements.yml` file with the following information, and run `ansible-galaxy install -r requirements.yml`.
+
+```yml
+- name: geerlingguy.mas
+- name: geerlingguy.dotfiles
 ```
-git clone https://github.com/brianhartsock/dotfiles .dotfiles
-cd .dotfiles
-./bootstrap.sh
+
+Next create the variables file `vars.yml` with the appropriate variables set:
+
+```yaml
+dotfiles_repo: https://github.com/brianhartsock/dotfiles.git
+dotfiles_repo_local_destination: ~/Code/dotfiles
+dotfiles_files:
+  - .bash_profile
+  - .bashrc
+  - .environment
+  - .gemrc
+  - .gitconfig
+  - .vim
+  - .vimrc
 ```
-Done!
+
+Then create your ansible playbook.
+
+```yaml
+- hosts: localhost
+  vars_files:
+    - vars.yml
+  roles:
+    - geerlingguy.dotfiles
+```
+
+Finally, run ansible with `ansible-playbook playbook.yml` and your dotfiles will be installed.
 
 # How it works
-Every file in the directory will be symlinked to ~ and prefixed with a . to make the file hidden, with the exception of *Exclusions* and *Templates*.  Easy peasy.
-
-## Templates
-Template files are defined with a .template extension. Each template file contains template variables. Template variables have the form "${variable_name}" without the quotes. These variables are replaced by user input, or by bash variables that share the variable name. Take the example config file:
-
-```
-gitconfig:
-[user]
- name = ${GIT_NAME}
-```
-
-There are two ways this template variable can be used. 
-
-1. Do nothing. The script will prompt the user for the value
-2. Run bootstrap.sh with a variable defined in the bash environment
-   i.e. GIT_NAME="Brian Hartsock" ./bootstrap.sh
-
-Template files are copied to hidden temp files, .tmp extension, where the template values are replaced and those tmp files are symlinked to the users home directory.
-
-# Bugs
-If you use this and find issues, just submit and issue or create a PR. I created this mainly for myself and am sure there are tons of scenarios that haven't been accounted for in the code.
+Every file specified by `dotfiles_files` will be symlinked to ~. Easy peasy.
 
 # Inspiration
 Dotfiles are something very custom to the user and I didn't really want to use a community repository. With that said, there are some great repos that my dotfiles are based on:
 
+* https://github.com/geerlingguy/dotfiles
 * https://github.com/holman/dotfiles
 * https://github.com/mathiasbynens
