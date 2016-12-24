@@ -26,13 +26,10 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
 " Custom Bundles-------------------------------
-NeoBundle 'vim-scripts/vim-soy'
 NeoBundle 'markcornick/vim-vagrant'
 NeoBundle 'fatih/vim-go'
-NeoBundle 'andreimaxim/vim-io'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'vim-scripts/scons.vim'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'editorconfig/editorconfig-vim'
@@ -98,13 +95,6 @@ endif
 
 " make backspace work like most other apps
 set backspace=2 
-
-"TODO - Do i still need this?
-"ruby
-"autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-"autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-"autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-"autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 "python
 autocmd FileType python set shiftwidth=4
