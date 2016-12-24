@@ -1,9 +1,6 @@
 [core]
   editor = /usr/bin/vim
   excludesfile = ~/.gitignore
-[user]
-  name = ${GIT_NAME}
-  email = ${GIT_EMAIL}
 [color]
   ui = auto
   branch = auto
@@ -25,10 +22,10 @@
   untracked = cyan
 [core]
   whitespace = trailing-space,space-before-tab
-[github]
-  user = ${GITHUB_USERNAME}
-  token = ${GITHUB_TOKEN}
 [gist]
   private = yes
 [push]
   default = simple
+[include]
+  path = ~/.gitconfig-user
+  path = ~/.gitconfig-github

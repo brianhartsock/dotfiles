@@ -13,19 +13,6 @@ if [ -f ~/.environment ]; then
   source ~/.environment
 fi
 
-# Extra Environment Definitions
-# Where other, more sensitive, environment variables are set.
-if [ -f ~/.extra ]; then
-  source ~/.extra
-fi
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.aliases, instead of adding them here directly.
-if [ -f ~/.aliases ]; then
-  source ~/.aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -41,10 +28,6 @@ if [ $PLATFORM == 'Darwin' ]; then
   fi
 fi
 
-# NVM Setup
-export NVM_DIR="/Users/brianhartsock/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # AWS Autocomplete
 complete -C aws_completer aws
 
@@ -54,10 +37,9 @@ if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
 fi
 
 # RVM Setup
-# RVM checks these lines in .bashrc so it must be in this file.
-# RVM likes to be first...
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+# NVM Setup
 export NVM_DIR="/Users/brianhartsock/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
