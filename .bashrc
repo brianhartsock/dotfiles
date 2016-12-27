@@ -20,6 +20,11 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   source /etc/bash_completion
 fi
 
+# Load additional aliases
+if [[ -f ~/.aliases ]]; then
+  source ~/.aliases
+fi
+
 # homebrew bash completion
 PLATFORM=$(uname)
 if [ $PLATFORM == 'Darwin' ]; then

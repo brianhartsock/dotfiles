@@ -43,6 +43,10 @@ Finally, run ansible with `ansible-playbook playbook.yml` and your dotfiles will
 # How it works
 Every file specified by `dotfiles_files` will be symlinked to ~. Easy peasy.
 
+# ZSH
+
+Much of my ZSH configuration is based on [prezto](https://github.com/sorin-ionescu/prezto). Various customizations are committed directly to [my fork](https://github.com/brianhartsock/prezto). Check it out.
+
 # Inspiration
 Dotfiles are something very custom to the user and I didn't really want to use a community repository. With that said, there are some great repos that my dotfiles are based on:
 
