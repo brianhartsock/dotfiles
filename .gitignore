@@ -1,5 +1,11 @@
-.vim/.netrwhist
+# VIM temporary files
+*.swp
 
-# Ignore everything but NeoBundle. NeoBundle will install other plugins.
-.vim/bundle/*
-!.vim/bundle/neobundle.vim
+# Compiled Python files
+*.pyc
+
+# Folder view configuration files
+.DS_Store
+
+# Thumbnail cache files
+Thumbs.db
