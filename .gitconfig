@@ -26,6 +26,6 @@
   private = yes
 [push]
   default = simple
-[include]
-  path = ~/.gitconfig-user
-  path = ~/.gitconfig-github
+[user]
+	email = brian.hartsock@gmail.com
+	name = Brian Hartsock
