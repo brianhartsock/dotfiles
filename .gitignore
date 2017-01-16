@@ -9,3 +9,6 @@
 
 # Thumbnail cache files
 Thumbs.db
+
+# JavaScript
+node_modules
