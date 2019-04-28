@@ -27,5 +27,5 @@
 [push]
   default = simple
 [user]
-	email = brian.hartsock@gmail.com
-	name = Brian Hartsock
+  email = brian.hartsock@gmail.com
+  name = Brian Hartsock
